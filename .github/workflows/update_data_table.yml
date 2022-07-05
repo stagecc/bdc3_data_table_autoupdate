@@ -1,6 +1,6 @@
 name: py
     
-on:
+on: workflow_dispatch
   schedule:
     - cron: "0 0 * * *" #runs at 00:00 UTC everyday
 
@@ -15,6 +15,9 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8 #install the python needed
+      - name: create folder
+        run: |
+          rm -r outputs && mkdir -p outputs
       - name: execute py script # run the run.py to get the latest data
         run: |
           python call_mds.py
