@@ -17,7 +17,7 @@ jobs:
           python-version: 3.8 #install the python needed
       - name: create folder
         run: |
-          rm -r outputs && mkdir -p outputs
+          rm -rf outputs && mkdir -p outputs
       - name: execute py script # run the run.py to get the latest data
         run: |
           python call_mds.py
